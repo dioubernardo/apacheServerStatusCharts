@@ -1,5 +1,5 @@
 # Apache server-status Charts 
-Application in HTML to draw charts for represent apache server status data.
+Aplicação escrita em HTML5 e Javascript para representar os dados do apache server-status com gráficos.
 
 ![capturar](https://cloud.githubusercontent.com/assets/3487994/8964325/5cce6e1c-35fb-11e5-994b-d9f07192862a.PNG)
 
