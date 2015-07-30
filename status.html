@@ -94,13 +94,13 @@
 				]), optionsChartWorkers);
 
 				if (dataRequests.getNumberOfRows() > itensInLineCharts)
-					dataRequests.removeRow(1);
+					dataRequests.removeRow(0);
 				dataRequests.addRow([new Date(), parseFloat(vars.ReqPerSec)]);
 				optionsChartRequests.width = $("#requests").innerWidth();
 				chartRequests.draw(dataRequests, optionsChartRequests);
 
 				if (dataBytes.getNumberOfRows() > itensInLineCharts)
-					dataBytes.removeRow(1);
+					dataBytes.removeRow(0);
 				dataBytes.addRow([new Date(), parseFloat(vars.BytesPerSec/1024)]);
 				optionsChartBytes.width = $("#bytes").innerWidth();
 				chartBytes.draw(dataBytes, optionsChartBytes);
