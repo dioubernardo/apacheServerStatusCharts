@@ -3,7 +3,10 @@ Aplicação escrita em HTML5 e Javascript para representar os dados do apache se
 
 ![capturar](https://cloud.githubusercontent.com/assets/3487994/8964325/5cce6e1c-35fb-11e5-994b-d9f07192862a.PNG)
 
-## Pre-requisitos
+## Uso
+Copiar o arquivo status.html para seu servidor e executar no browser. 
+
+## Pré-requisitos
 - Ativar o mod_status no apache (http://httpd.apache.org/docs/2.2/mod/mod_status.html)
 - Garantir que o computador que deseja visualizar os dados tem acesso ao /server-status
 
