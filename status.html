@@ -31,13 +31,13 @@
 		};
 		var chartRequests, dataRequests, optionsChartRequests = {
 			height: 200,
-			vAxis: { title: 'Req/Seg' },
+			vAxis: { title: 'Req/s' },
 			legend: { position: 'none' },
 			hAxis: { format: 'HH:mm' }
 		};
 		var chartBytes, dataBytes, optionsChartBytes = {
 			height: 200,
-			vAxis: { title: 'KBytes/Seg' },
+			vAxis: { title: 'Kb/s' },
 			legend: { position: 'none' },
 			hAxis: { format: 'HH:mm' }
 		};
@@ -59,11 +59,11 @@
 			
 			dataRequests = new google.visualization.DataTable();
 			dataRequests.addColumn('datetime', 'X');
-			dataRequests.addColumn('number', 'Req/Seg');
+			dataRequests.addColumn('number', 'Req/s');
 			
 			dataBytes = new google.visualization.DataTable();
 			dataBytes.addColumn('datetime', 'X');
-			dataBytes.addColumn('number', 'Kbytes/Seg');
+			dataBytes.addColumn('number', 'Kb/s');
 			
 			loadData();
 		}
@@ -175,10 +175,10 @@
 				<h1 id="serverName" class="text-center"></h1>
 				<div class="row">
 				  <div class="col-md-4 text-center">
-					<h3><small>Acessos</small><div id="TotalAccesses"></div></h3>
+					<h3><small>Total accesses</small><div id="TotalAccesses"></div></h3>
 				  </div>
 				  <div class="col-md-4 text-center">
-					<h3><small>Dados trafegados</small><div id="TotalkBytes"></div></h3>
+					<h3><small>Total traffic</small><div id="TotalkBytes"></div></h3>
 				  </div>
 				  <div class="col-md-4 text-center">
 					<h3><small>Uptime</small><div id="Uptime"></div></h3>
