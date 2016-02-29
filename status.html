@@ -68,7 +68,7 @@
 			loadData();
 		}
 		function loadData(){
-			$.get(serverStatusURL+"?auto", function(status){
+			$.get(serverStatusURL+"?auto&"+(new Date().getTime()), function(status){
 				status = status.split("\n");
 				var vars = {};
 				for(var i in status){
@@ -77,13 +77,13 @@
 						vars[status[i][1].replace(/\s/g, '')] = status[i][2];
 				}
 				
-				$('#TotalAccesses').html( (parseInt(vars.TotalAccesses)/1000).toFixed(0) + 'M');
+				$('#TotalAccesses').html( parseInt(vars.TotalAccesses/1000) + 'M');
 				$('#TotalkBytes').html(formatSizeUnits(parseInt(vars.TotalkBytes)*1024));
 				$('#Uptime').html(secondsToHms(parseInt(vars.Uptime)));
 				
 				chartCPU.draw(google.visualization.arrayToDataTable([
 					['Label', 'Value'],
-					['CPU %', parseFloat((parseFloat(vars.CPULoad)).toFixed(1))]
+					['CPU %', parseFloat((parseFloat(vars.CPULoad||0)).toFixed(1))]
 				]), optionsChartCPU);
 
 				var workersBusy = parseInt(vars.BusyWorkers);
@@ -95,13 +95,13 @@
 
 				if (dataRequests.getNumberOfRows() > itensInLineCharts)
 					dataRequests.removeRow(0);
-				dataRequests.addRow([new Date(), parseFloat(vars.ReqPerSec)]);
+				dataRequests.addRow([new Date(), parseFloat((parseFloat(vars.ReqPerSec)).toFixed(1))]);
 				optionsChartRequests.width = $("#requests").innerWidth();
 				chartRequests.draw(dataRequests, optionsChartRequests);
 
 				if (dataBytes.getNumberOfRows() > itensInLineCharts)
 					dataBytes.removeRow(0);
-				dataBytes.addRow([new Date(), parseFloat(vars.BytesPerSec/1024)]);
+				dataBytes.addRow([new Date(), parseInt(vars.BytesPerSec/1024)]);
 				optionsChartBytes.width = $("#bytes").innerWidth();
 				chartBytes.draw(dataBytes, optionsChartBytes);
 				
